@@ -1,0 +1,135 @@
+.divider{
+  display: block;
+  width: 100%;
+  @for $i from 1 through 7{
+      &.is-size-#{$i}{
+          height:#{$i}rem ;
+      }
+  }
+}
+
+.video-wrapper {
+  height: 0;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  overflow: hidden;
+  position: relative;
+
+  embed,
+  iframe,
+  object {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+//text helpers
+$weight-sizes:100,300,400,500,600,700,800,900;
+
+@each $weight-size in $weight-sizes {
+  $i: index($weight-sizes, $weight-size);
+  .fw-#{$weight-size} {
+    font-weight: $weight-size!important;
+  }
+}
+@for $i from 8 through 128{
+  .fz-#{$i}{
+      font-size:#{$i}px!important;
+  }
+}
+
+$app-colors:(
+  0: ("red", $red),
+  1: ("yellow", $yellow),
+  2: ("green", $black),
+  3: ("cyan", $cyan),
+  4: ("blue", $blue),
+  5: ("purple", $purple),
+  6: ("orange", $orange),
+  7: ("silver", $silver),
+  8: ("success", $success),
+  9: ("warning", $warning),
+  10: ("danger", $danger),
+  11: ("info", $info),
+  12: ("primary", $primary),
+  13: ("primary-light", $primary-light),
+  14: ("primary-dark", $primary-dark),
+  15: ("secondary", $secondary),
+  16: ("secondary-light", $secondary-light),
+  17: ("secondary-dark", $secondary-dark),
+  18: ("gray", $gray),
+  19: ("gray-dark", $gray-dark),
+  20: ("black-dark", $black-dark),
+  21: ("white", $white)
+  
+);
+@each $name, $value in $app-colors {
+  .c-#{nth($value, 1)} {
+    color:nth($value, 2)!important;
+  }
+}
+@each $name, $value in $app-colors {
+  .bg-#{nth($value, 1)} {
+    background:nth($value, 2)!important;
+  }
+}
+.button{
+  @each $name, $value in $app-colors {
+    &.is-#{nth($value, 1)} {
+      background:nth($value, 2)!important;
+    }
+  }
+  i{
+    margin-right: .5rem;
+  }
+  
+}
+
+
+.tt-uppercase{
+  text-transform: uppercase!important;
+}
+.ta-center{
+  text-align: center;
+}
+.ts{
+  @include textShadow;
+}
+.d-flex{
+  display: flex!important;
+}
+.jc-center{
+  justify-content: center;
+}
+.ai-center{
+  align-items: center;
+}
+.fd-r{
+  flex-direction: row!important;
+}
+.fd-c{
+  flex-direction: column!important;
+}
+.ai-fs{
+  align-items: flex-start!important;
+}
+.is-fullwidth{
+  width: 100%!important;
+}
+.is-fullheight{
+  @include from($mobile){
+    height: 100vh!important;
+  }
+}
+
+.is-size-big{
+  @include from($tablet){
+    font-size: 5rem;
+  }
+  @include to($tablet){
+    font-size: 3rem;
+  }
+}
