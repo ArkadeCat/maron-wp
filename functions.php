@@ -133,7 +133,7 @@ function bulmawp_breadcrumbs() {
  */
 
 function bulmawp_enqueue() {
-	wp_enqueue_style( 'bulmawp', get_template_directory_uri() . '/assets/css/style.css', '', '0.2.2' );
+	wp_enqueue_style( 'bulmawp', get_template_directory_uri() . '/style.css', '', '0.2.2' );
 
 	wp_deregister_script( 'jquery' );
 
@@ -302,3 +302,4 @@ add_theme_support( 'custom-logo', array(
 add_theme_support( 'post-thumbnails' );
 add_theme_support( 'html5', array( 'search-form' ) );
 add_theme_support( 'title-tag' );
+add_filter('use_block_editor_for_post_type', '__return_false', 100);
