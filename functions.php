@@ -133,13 +133,14 @@ function bulmawp_breadcrumbs() {
  */
 
 function bulmawp_enqueue() {
-	wp_enqueue_style( 'bulmawp', get_template_directory_uri() . '/assets/css/style.css', '', '0.2.2' );
+	wp_enqueue_style( 'bulmawp', get_template_directory_uri() . '/style.css', '', '0.2.2' );
+	wp_enqueue_style( 'fontawesome',  'https://use.fontawesome.com/releases/v5.7.2/css/all.css', '', '5.7.2' );
 
 	wp_deregister_script( 'jquery' );
 
 	wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js', '', '3.3.1', true );
 	wp_enqueue_script( 'bulmawp-script', get_template_directory_uri() . '/assets/js/main.min.js', array( 'jquery' ), '1.0', true );
-  wp_enqueue_script( 'font-awesome', 'https://use.fontawesome.com/releases/v5.7.0/js/all.js', '', '5.7.0', true );
+  // wp_enqueue_script( 'font-awesome', 'https://use.fontawesome.com/releases/v5.7.0/js/all.js', '', '5.7.0', true );
 
 	if( is_single() && comments_open() ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -168,7 +169,7 @@ require get_template_directory() . '/inc/comment-walker.php';
 
 function bulmawp_register_menus() {
 	register_nav_menu( 'navbar_start', 'Navbar Start Menu' );
-	register_nav_menu( 'navbar_end', 'Navbar End Menu' );
+	// register_nav_menu( 'navbar_end', 'Navbar End Menu' );
 }
 
 add_action( 'after_setup_theme', 'bulmawp_register_menus' );
@@ -281,6 +282,14 @@ function bulmawp_sidebar() {
 		'before_title' 		=> '<h2 class="menu-label">',
 		'after_title' 		=> '</h2>',
 	) );
+	register_sidebar( array(
+		'name' 						=> 'Enlaces Barra Superior',
+		'id' 							=> 'navbar-links',
+	  'before_widget' 	=> '<div class="widget">',
+	  'after_widget' 		=> '</div>',
+		'before_title' 		=> '<h2 class="menu-label">',
+		'after_title' 		=> '</h2>',
+	) );
 }
 
 add_action( 'widgets_init', 'bulmawp_sidebar' );
@@ -302,3 +311,4 @@ add_theme_support( 'custom-logo', array(
 add_theme_support( 'post-thumbnails' );
 add_theme_support( 'html5', array( 'search-form' ) );
 add_theme_support( 'title-tag' );
+add_filter('use_block_editor_for_post_type', '__return_false', 100);

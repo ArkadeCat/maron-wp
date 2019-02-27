@@ -13,10 +13,11 @@
     <?php wp_head(); ?>
   </head>
   <body <?php body_class(); ?>>
-    <nav class="navbar">
+
+    <nav class="navbar is-black">
       <div class="container">
         <div class="navbar-brand">
-          <a class="navbar-item" href="<?php echo site_url(); ?>">
+          <a class="navbar-item navbar-logo" href="<?php echo site_url(); ?>">
             <?php
             $logo = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' );
             if( has_custom_logo() ) : echo '<img src="' . esc_url( $logo[0] ) . '" alt="' . get_bloginfo( 'name' ) . '">';
@@ -24,12 +25,9 @@
             endif;
             ?>
           </a>
-          <div class="navbar-burger burger">
-            <span></span>
-            <span></span>
-            <span></span>
+          
           </div>
-        </div>
+          
         <div class="navbar-menu">
           <div class="navbar-start">
             <?php
@@ -54,55 +52,20 @@
             ?>
           </div>
           <div class="navbar-end">
-            <?php
-            wp_nav_menu( array(
-              'theme_location'  => 'navbar_end',
-              'menu'            => '',
-          		'container'       => '',
-          		'container_class' => '',
-          		'container_id'    => '',
-          		'menu_class'      => '',
-          		'menu_id'         => '',
-          		'echo'            => true,
-          		'fallback_cb'     => 'BulmaWP_Navbar_Walker::fallback',
-          		'before'          => '',
-          		'after'           => '',
-          		'link_before'     => '',
-          		'link_after'      => '',
-              'items_wrap'      => '%3$s',
-              'depth'           => 0,
-              'walker'          => new BulmaWP_Navbar_Walker
-            ));
-            ?>
-            <div class="field is-grouped">
-              <a class="navbar-item">
-                <span class="icon">
-                  <i class="fab fa-facebook fa-lg"></i>
-                </span>
-              </a>
-              <a class="navbar-item">
-                <span class="icon">
-                  <i class="fab fa-twitter fa-lg"></i>
-                </span>
-              </a>
-              <a class="navbar-item">
-                <span class="icon">
-                  <i class="fab fa-instagram fa-lg"></i>
-                </span>
-              </a>
-              <a class="navbar-item">
-                <span class="icon">
-                  <i class="fab fa-pinterest fa-lg"></i>
-                </span>
-              </a>
-              <a class="navbar-item">
-                <span class="icon">
-                  <i class="fas fa-rss fa-lg"></i>
-                </span>
-              </a>
-            </div>
+            <?php dynamic_sidebar( 'navbar-links
+            ' ); ?>
+            
           </div>
         </div>
+        <div class="navbar-burger burger">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+              </div>
+          
+            
       </div>
+      
+              
     </nav>
 

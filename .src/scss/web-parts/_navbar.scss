@@ -1,4 +1,89 @@
 .navbar{
     position: sticky;
     top:0;
+    margin-bottom: 1rem;
+    min-height: 4.25rem;
+    &-item{
+        text-transform: uppercase;
+        font-weight: 600;
+        @include animate;
+        &:hover{
+            background-color: $primary!important;
+            color:white!important;
+            @include animate;
+        }
+    }
+    &-brand{
+        position: relative;
+        width: 200px;
+        
+        .navbar-logo{
+            position: absolute;
+            top:0;
+            left: 0;
+            padding: 0;
+            img{
+                max-height: initial!important;
+                margin-top:-10px;
+            }
+        }
+        .navbar-item{
+            &:hover{
+                background-color: transparent!important;
+            }
+        }
+    }
+    &-end{
+        .navbar-item{
+            background-color: transparent!important;
+        }
+        .widget{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            i{
+                font-size: 1.1rem;
+                @include from($desktop){
+                    color:white;
+                }
+                @include to($desktop){
+                    color:$primary;
+                }
+                &:hover{
+                    color:$orange;
+                }
+            }
+        }
+        .button{
+            margin-right: 1rem;
+            i{
+                font-size: 1rem;
+                margin-right: 0;
+                color:white!important;
+                &:hover{
+                    color: white!important;
+                }
+            }
+        }
+    }
+}
+.navbar-menu{
+    @include to($desktop){
+        padding-top: 4rem!important;
+    }
+}
+.navbar-burger{
+    position: absolute;
+    right: 1rem;
+    top:.25rem;
+}
+.navbar-dropdown{
+    .navbar-item{
+        &:hover{
+            color: white!important;
+        }
+    }
+}
+.navbar-item.has-dropdown{
+    background-color: transparent!important;
 }

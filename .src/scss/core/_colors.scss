@@ -1,23 +1,23 @@
 $red:#d63031;
-$yellow:#fdcb6e;
-$green:#00b894;
+$yellow:#F1933F;
+$green:#07BFA3;
 $cyan:#81ecec;
-$blue:#0984e3;
-$purple:#6c5ce7;
-$orange:#e17055;
-$silver:#e4e4e4;
+$blue:#38B1FF;
+$purple:#801965;
+$orange:#F1933F;
+$silver:#EBEBEB;
 
 $success:$green;
 $warning:$yellow;
 $danger:$red;
 $info:$cyan;
 
-$primary:$blue;
+$primary:$purple;
 $primary-light:lighten($primary,10);
 $primary-dark:darken($primary,10);
 
 
-$secondary:$green;
+$secondary:$orange;
 $secondary-light:lighten($secondary,28);
 $secondary-dark:darken($secondary,10);
 

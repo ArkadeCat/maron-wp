@@ -250,7 +250,7 @@ if ( ! class_exists( 'BulmaWP_Navbar_Walker' ) ) {
 					}
 					echo '>';
 				}
-				echo '<a class="navbar-item" href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '" title="">' . esc_attr( 'Add a menu', 'bulmawp' ) . '</a>';
+				//echo '<a class="navbar-item" href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '" title="">' . esc_attr( 'Add a menu', 'bulmawp' ) . '</a>';
 				if ( $container ) {
 					echo '</' . esc_attr( $container ) . '>';
 				}
